@@ -2,7 +2,9 @@
 A speech-to-text application using the Web Speech API to map spoken commands to React and HTML code segments, which are copied to an editor.
 
 Essentially, **coding with your voice**
+
 ![enter image description here](https://media.tenor.com/images/5bcb5056e6dfe7f757018ecaa8a4b868/tenor.gif)
+
 But of course, this isn't limited to React. You can add mappings for any language and any action you can think of. The possibilities are endless!
 
 # How to run
