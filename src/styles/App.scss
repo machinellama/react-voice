@@ -1,0 +1,81 @@
+html {
+  padding: 20px;
+  max-width: 1400px;
+  left: 50%;
+  right: 50%;
+  margin: auto;
+}
+
+.action-row {
+  padding: 20px;
+
+  .action-card {
+    text-align: center;
+    padding-top: 12px;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+}
+
+.current-card {
+  height: 120px;
+}
+
+.spoken-list {
+  margin-top: 40px;
+
+  .spoken-item {
+    display: flex;
+
+    .text {
+      margin-bottom: 0;
+    }
+  }
+
+  .spoken-text {
+    padding-left: 2px;
+    padding-right: 40px;
+  }
+
+  .spoken-time {
+    font-size: 12px;
+    padding-top: 3px;
+    position: absolute;
+    float: right;
+    right: 10px;
+  }
+}
+
+.commands-card {
+  margin-top: 40px;
+  height: calc(100vh * (2/3));
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  .commands-row {
+    cursor: pointer;
+  }
+}
+
+.modal-dialog {
+  max-width: 700px;
+}
+
+.modal-header {
+  display: block;
+  text-align: center;
+}
+
+.dropdown-item {
+  cursor: pointer;
+}
+
+.theme-row {
+  display: block;
+  text-align: right;
+
+  .theme {
+    margin: 0 10px;
+    cursor: pointer;
+  }
+}

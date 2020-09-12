@@ -1,0 +1,60 @@
+{
+  "name": "react-voice",
+  "version": "0.0.1",
+  "description": "Speech to text code assist for React and CSS",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MachineLlama/react-voice"
+  },
+  "keywords": [
+    "React",
+    "Web Speech API",
+    "JavaScript",
+    "Machine Learning",
+    "Code Assist"
+  ],
+  "author": "MachineLlama",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.2",
+    "classnames": "^2.2.6",
+    "clipboardy": "^2.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
+    "lodash": "^4.17.20",
+    "moment-mini": "^2.24.0",
+    "node-sass": "^4.14.1",
+    "popper.js": "^1.16.1",
+    "react": "^16.13.1",
+    "react-bootstrap4-modal": "^1.7.5",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "react-speech-recognition": "^3.2.3",
+    "robotjs": "^0.6.0",
+    "superagent": "^6.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

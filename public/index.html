@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Speech-to-text code assist for React and CSS"
+    />
+    <title>React Code Assist</title>
+
+    <script>
+      var head = document.head;
+      var link = document.createElement("link");
+      var theme = localStorage.getItem("theme");
+      if (!theme) {
+        theme = 'darkly';
+      }
+      link.type = "text/css";
+      link.rel = "stylesheet";
+      link.href = "themes/" + theme + ".css";
+      head.appendChild(link);
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>
