@@ -9,10 +9,10 @@ But of course, this isn't limited to React. You can add mappings for any languag
 
 # How to run
 
-To run the front-end portion of the app, run `npm run start` from the root to start a React application on port 3000
+Front-end: run `npm run start` from the root to start a React application on port 3000
  - This utilizes the Web Speech API and is only available on Chrome and Edge as of this writing
 
-To run the back-end portion, run `node express` to run an Express server on port 3002
+Back-end: run `node express` to run an Express server on port 3002
  - This has a single endpoint which accepts a text, copies it to your computer's clipboard, and then executes a command to paste the text wherever your cursor is. This must be done from a backend server since a browser can't execute commands on your desktop
 
 That's it! Once you have both running, you can click 'Start Listening' on the UI, talk into your mic, and if a command is picked up, its corresponding code will be pasted wherever your cursor is. You can leave the app running in the background and code away.
