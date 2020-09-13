@@ -47,7 +47,7 @@ To add a new language:
  - Add the language in `src/config.js`
  - Add commands for the language in `src/scripts/commands.js`
 
-Note: best results are in English; your mileage will vary with other languages. I tried Spanish, Japanese, and Chinese in this app. Spanish was pretty smooth, but the Web Speech API had issues recognizing when Chinese and Japanese commands end, so the `finalTranscript` property takes a long time to populate in some cases for those languages.
+Note: best results are in English; your mileage will vary with other languages. I tried Spanish, Japanese, and Chinese in this app. Spanish was pretty smooth, but the Web Speech API had issues recognizing end of speech for Chinese and Japanese commands, so the `finalTranscript` property takes a long time to populate in some cases for those languages.
 
 ## Libraries used
 
