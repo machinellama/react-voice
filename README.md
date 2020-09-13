@@ -1,5 +1,5 @@
 # React Voice
-A speech-to-text application using the Web Speech API to map spoken commands to React and HTML code segments, which are copied to an editor.
+A speech-to-text application using Web Speech API to map spoken commands to React and HTML code segments, which are copied to an editor.
 
 Essentially, **coding with your voice**
 
