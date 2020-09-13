@@ -32,6 +32,24 @@ export default function (addToList, language, endFunction) {
     ]
   }
 
+  // Japanese
+  if (language.locale === 'ja-JP') {
+    return [
+      {
+        command: '関数 (*)',
+        callback: (name) => getCallback(mappings.func(name?.trim() || 'bubblegum'), 'kansuu'),
+        commandText: mappings.func('bubblegum'),
+        description: 'kansuu'
+      },
+      {
+        command: '成分 (*)',
+        callback: (name) => getCallback(mappings.component(name?.trim() || 'Ooo'), 'seibun'),
+        commandText: mappings.func('Ooo'),
+        description: 'seibun'
+      }
+    ]
+  }
+
   // Chinese
   if (language.locale === 'zh-CN') {
     return [

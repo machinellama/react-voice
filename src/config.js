@@ -18,6 +18,10 @@ module.exports.config = {
       language: 'Spanish'
     },
     {
+      locale: 'ja-JP',
+      language: 'Japanese'
+    },
+    {
       locale: 'zh-CN',
       language: 'Mandarin'
     }
