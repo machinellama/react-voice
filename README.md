@@ -23,8 +23,9 @@ Note: No connections to the outside world are made in this app. Everything is co
 
 You can modify environment variables in `src/config.js`
  - **port and express.port**: where the UI and Express servers run
- - **languages**: what languages you can select on the UI
  - **listenOnStartup**: start listening as soon as the app starts
+ - **languages**: define selectable languages
+ - **defaultLanguage**: default language
  - **robotjs.paste**: the command for pasting copied code (will be different on different operating systems)
  - **robotjs.cleanup**: optional cleanup command (shift+alt+f is auto-format for VS Code on Windows)
 

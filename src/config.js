@@ -3,11 +3,11 @@ module.exports.config = {
   express: {
     port: 3002
   },
+  listenOnStartup: false,
   defaultLanguage: {
     locale: 'en-US',
     language: 'English'
   },
-  listenOnStartup: false,
   languages: [
     {
       locale: 'en-US',
