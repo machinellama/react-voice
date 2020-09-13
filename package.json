@@ -1,7 +1,7 @@
 {
   "name": "react-voice",
   "version": "0.0.1",
-  "description": "Speech to text code assist for React and CSS",
+  "description": "Speech-to-text code assist for React and CSS",
   "main": "index.js",
   "repository": {
     "type": "git",

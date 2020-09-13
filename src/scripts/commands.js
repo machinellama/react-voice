@@ -5,8 +5,8 @@ import * as mappings from './mappings';
 export default function (addToList, language, endFunction) {
   const url = `http://localhost:${config.express.port}/copyPasta`;
 
-  const getCallback = function (text, name) {
-    addToList(name);
+  const getCallback = function (text, nameOfCommandExecuted) {
+    addToList(nameOfCommandExecuted);
 
     superagent
       .post(url)
@@ -14,70 +14,90 @@ export default function (addToList, language, endFunction) {
       .end(endFunction);
   }
 
+  // Spanish
+  if (language.locale === 'es-US') {
+    return [
+      {
+        command: 'función (*)',
+        callback: (name) => getCallback(mappings.func(name?.trim() || 'bubblegum'), 'función'),
+        commandText: mappings.func('bubblegum'),
+        description: 'función'
+      },
+      {
+        command: 'componente (*)',
+        callback: (name) => getCallback(mappings.component(name?.trim() || 'Ooo'), 'componente'),
+        commandText: mappings.func('Ooo'),
+        description: 'componente'
+      }
+    ]
+  }
+
+  // Chinese
   if (language.locale === 'zh-CN') {
     return [
       {
         command: '你',
         callback: () => getCallback('Ni', 'Ni'),
-        text: '你',
-        name: 'Ni',
+        commandText: '你',
+        description: 'Ni',
         isFuzzyMatch: true
       },
       {
         command: '你好',
         callback: () => getCallback('Hello', 'Hello'),
-        text: '你好',
-        name: 'Hello',
+        commandText: '你好',
+        description: 'Hello',
         isFuzzyMatch: true
       }
     ]
   }
 
+  // English
   if (language.locale === 'en-US') {
     return [
       {
         command: 'function (*)',
         callback: (name) => getCallback(mappings.func(name?.trim() || 'bubblegum'), 'function'),
-        text: mappings.func('bubblegum'),
-        name: 'new function'
+        commandText: mappings.func('bubblegum'),
+        description: 'new function'
       },
       {
         command: 'constant (*)',
         callback: (name) => getCallback(mappings.constant(name?.trim() || 'marceline'), 'constant'),
-        text: mappings.constant('marceline'),
-        name: 'const'
+        commandText: mappings.constant('marceline'),
+        description: 'const'
       },
       {
         command: 'state (*)',
         callback: (name) => getCallback(mappings.state(name?.trim() || 'state'), 'state'),
-        text: mappings.state('state'),
-        name: 'useState'
+        commandText: mappings.state('state'),
+        description: 'useState'
       },
       {
         command: 'component (*)',
         callback: (name) => getCallback(mappings.component(name?.trim() || 'Ooo'), 'component'),
-        text: mappings.component('Ooo'),
-        name: 'functional component'
+        commandText: mappings.component('Ooo'),
+        description: 'functional component'
       },
       {
         command: 'effect (*)',
         callback: (name) => getCallback(mappings.effect(name?.trim() || ''), 'effect'),
-        text: mappings.effect(''),
-        name: 'useEffect',
+        commandText: mappings.effect(''),
+        description: 'useEffect',
         isFuzzyMatch: true
       },
       // need to spell out 'd', 'i', 'v' for speech recognition to pick up
       {
         command: 'div (*)',
         callback: (text) => getCallback(mappings.div(text?.trim() || 'the vampire queen'), 'div'),
-        text: mappings.div('the vampire queen'),
-        name: '<div>'
+        commandText: mappings.div('the vampire queen'),
+        description: '<div>'
       },
       {
         command: 'span (*)',
         callback: (text) => getCallback(mappings.span(text?.trim() || 'candy kingdom'), 'span'),
-        text: mappings.span('candy kingdom'),
-        name: '<span>'
+        commandText: mappings.span('candy kingdom'),
+        description: '<span>'
       },
       {
         command: 'spam (*)',
@@ -86,32 +106,32 @@ export default function (addToList, language, endFunction) {
       {
         command: 'text (*)',
         callback: (type) => getCallback(mappings.text(type?.trim() || ''), 'text'),
-        text: mappings.text(''),
-        name: '<p>'
+        commandText: mappings.text(''),
+        description: '<p>'
       },
       {
         command: 'button (*)',
         callback: (type) => getCallback(mappings.button(type?.trim() || ''), 'button'),
-        text: mappings.button(''),
-        name: '<button>'
+        commandText: mappings.button(''),
+        description: '<button>'
       },
       {
         command: 'input',
         callback: (type) => getCallback(mappings.input(), 'input'),
-        text: mappings.input(),
-        name: '<input>'
+        commandText: mappings.input(),
+        description: '<input>'
       },
       {
         command: 'toggle',
         callback: (type) => getCallback(mappings.toggle(), 'toggle'),
-        text: mappings.toggle(),
-        name: 'toggle'
+        commandText: mappings.toggle(),
+        description: 'toggle'
       },
       {
         command: 'checkbox',
         callback: (type) => getCallback(mappings.checkbox(), 'checkbox'),
-        text: mappings.checkbox(),
-        name: 'checkbox'
+        commandText: mappings.checkbox(),
+        description: 'checkbox'
       },
       {
         command: 'check',
@@ -120,14 +140,14 @@ export default function (addToList, language, endFunction) {
       {
         command: 'slider',
         callback: (type) => getCallback(mappings.slider(), 'slider'),
-        text: mappings.slider(),
-        name: 'slider'
+        commandText: mappings.slider(),
+        description: 'slider'
       },
       {
         command: 'quote',
         callback: () => getCallback(mappings.blockquote(), 'quote'),
-        text: mappings.blockquote(),
-        name: '<blockquote>'
+        commandText: mappings.blockquote(),
+        description: '<blockquote>'
       },
       {
         command: 'quotes',
@@ -140,32 +160,32 @@ export default function (addToList, language, endFunction) {
       {
         command: 'table',
         callback: () => getCallback(mappings.table(), 'table'),
-        text: mappings.table(),
-        name: '<table>'
+        commandText: mappings.table(),
+        description: '<table>'
       },
       {
         command: 'email',
         callback: () => getCallback(mappings.email(), 'email'),
-        text: mappings.email(),
-        name: 'email input'
+        commandText: mappings.email(),
+        description: 'email input'
       },
       {
         command: 'password',
         callback: () => getCallback(mappings.password(), 'password'),
-        text: mappings.password(),
-        name: 'password input'
+        commandText: mappings.password(),
+        description: 'password input'
       },
       {
         command: 'select',
         callback: () => getCallback(mappings.select(), 'select'),
-        text: mappings.select(),
-        name: '<select>'
+        commandText: mappings.select(),
+        description: '<select>'
       },
       {
         command: 'textarea',
         callback: () => getCallback(mappings.textarea(), 'textarea'),
-        text: mappings.textarea(),
-        name: '<textarea>'
+        commandText: mappings.textarea(),
+        description: '<textarea>'
       },
       {
         command: 'text area',
@@ -174,38 +194,38 @@ export default function (addToList, language, endFunction) {
       {
         command: 'file',
         callback: () => getCallback(mappings.file(), 'file'),
-        text: mappings.file(),
-        name: 'file upload'
+        commandText: mappings.file(),
+        description: 'file upload'
       },
       {
         command: 'radio',
         callback: () => getCallback(mappings.radio(), 'radio'),
-        text: mappings.radio(),
-        name: 'radio'
+        commandText: mappings.radio(),
+        description: 'radio'
       },
       {
         command: 'alert (*)',
         callback: (type) => getCallback(mappings.alert(type?.trim() || 'success'), 'alert'),
-        text: mappings.alert('success'),
-        name: 'alert'
+        commandText: mappings.alert('success'),
+        description: 'alert'
       },
       {
         command: 'card',
         callback: () => getCallback(mappings.card(), 'card'),
-        text: mappings.card(),
-        name: 'card'
+        commandText: mappings.card(),
+        description: 'card'
       },
       {
         command: 'modal',
         callback: () => getCallback(mappings.modal(), 'modal'),
-        text: mappings.modal(),
-        name: 'modal'
+        commandText: mappings.modal(),
+        description: 'modal'
       },
       {
         command: 'toast',
         callback: () => getCallback(mappings.toast(), 'toast'),
-        text: mappings.toast(),
-        name: 'toast'
+        commandText: mappings.toast(),
+        description: 'toast'
       }
     ]
   }

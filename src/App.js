@@ -109,7 +109,7 @@ function App() {
   function getCommandsList() {
     let count = 0;
     return commands.map(command => {
-      if (command.name) {
+      if (command.description) {
         return (
           <tr
             key={count++}
@@ -117,12 +117,12 @@ function App() {
             data-toggle="modal"
             data-target="#commandModal"
             onClick={() => {
-              setModalText(command.text);
-              setModalTitle(command.name);
+              setModalText(command.commandText);
+              setModalTitle(command.description);
               setModalVisible(true);
             }}
           >
-            <td>{command.name}</td>
+            <td>{command.description}</td>
             <td>{command.command}</td>
           </tr>
         );

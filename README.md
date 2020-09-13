@@ -32,15 +32,21 @@ You can modify environment variables in `src/config.js`
 ## Adding commands
 
 To add new commands:
- - Export a new function in `src/scripts/mappings`
- - Write a new command in `src/scripts/commands` under a locale
+ - Export a new function in `src/scripts/mappings.js`
+ - Write a new command in `src/scripts/commands.js` under a locale
 	 - **command**: the text you want the Speech API to match
 	 - **callback**: function to execute after the command is found; see [react-speech-recognization documentation](https://www.npmjs.com/package/react-speech-recognition) for full details
-	 - **text**: the text of the mapped command, which is used on the UI in a modal when clicking a row on the command list
-	 - **name**: name of command to display on command list
+	 - **commandText**: the text of the mapped command, which is used in the command list modal
+	 - **description**: short description of command to display on command list
 	 - **isFuzzyMatch**: see [documentation](https://www.npmjs.com/package/react-speech-recognition)
 
 Get creative! You can add mappings for different languages, for macro commands on your computer, for automated scripts, integrations with IoT, chat bots, and things I can't even imagine right now
+
+## Adding languages
+
+To add a new language:
+ - Add the language in `src/config.js`
+ - Add commands for the language in `src/scripts/commands.js`
 
 ## Libraries used
 
