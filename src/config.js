@@ -7,6 +7,7 @@ module.exports.config = {
     locale: 'en-US',
     language: 'English'
   },
+  listenOnStartup: false,
   languages: [
     {
       locale: 'en-US',

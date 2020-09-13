@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import cn from 'classnames';
 import moment from 'moment-mini';
@@ -26,9 +26,20 @@ function App() {
     listening,
   } = useSpeechRecognition({ commands });
 
+  // only runs on initial startup
+  useEffect(() => {
+    if (config.listenOnStartup) {
+      SpeechRecognition.startListening({
+        continuous: true,
+        matchInterim: false,
+        language: language.locale
+      });
+    }
+  }, []);
+
   if (finalTranscript === 'stop' || finalTranscript === 'stop listening') {
     stopMic();
-  } else if (finalTranscript === 'reset' || finalTranscript === 'reset all') {
+  } else if (finalTranscript === 'reset') {
     reset();
   }
 
@@ -138,7 +149,7 @@ function App() {
 
         <div className="col-md-4">
           <div className={cn('card action-card', { 'border-secondary': spokenList.length > 0 })} onClick={reset}>
-            <p className={cn('text', { 'text-muted': spokenList.length === 0 })}>Reset All</p>
+            <p className={cn('text', { 'text-muted': spokenList.length === 0 })}>Reset</p>
           </div>
         </div>
       </div>

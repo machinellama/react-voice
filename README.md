@@ -24,6 +24,7 @@ Note: No connections to the outside world are made in this app. Everything is co
 You can modify environment variables in `src/config.js`
  - **port and express.port**: where the UI and Express servers run
  - **languages**: what languages you can select on the UI
+ - **listenOnStartup**: start listening as soon as the app starts
  - **robotjs.paste**: the command for pasting copied code (will be different on different operating systems)
  - **robotjs.cleanup**: optional cleanup command (shift+alt+f is auto-format for VS Code on Windows)
 
@@ -39,3 +40,9 @@ To add new commands:
 	 - **isFuzzyMatch**: see [documentation](https://www.npmjs.com/package/react-speech-recognition)
 
 Get creative! You can add mappings for different languages, for macro commands on your computer, for automated scripts, integrations with IoT, chat bots, and things I can't even imagine right now
+
+## Libraries used
+
+- [React Speech Recognition](https://www.npmjs.com/package/react-speech-recognition): A hook-based React wrapper around Web Speech API
+- [clipboardy](https://www.npmjs.com/package/clipboardy): Used to copy text to your computer's clipboard
+- [robotjs](https://www.npmjs.com/package/robotjs): Used to programatically click a combination of keys; used here to paste previously copied text
