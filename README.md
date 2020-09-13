@@ -9,6 +9,8 @@ But of course, this isn't limited to React. You can add mappings for any languag
 
 # How to run
 
+First run `npm install` to download dependencies
+
 Front-end: run `npm run start` from the root to start a React application on port 3000
  - This utilizes the Web Speech API and is only available on Chrome and Edge as of this writing
 
