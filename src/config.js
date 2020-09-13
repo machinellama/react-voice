@@ -27,17 +27,11 @@ module.exports.config = {
     }
   ],
   robotjs: {
-    // command to paste text from command
-    // where you mouse currently is
-    paste: {
-      first: 'v',
-      second: 'control'
-    },
-    // optional command after paste
-    // shift + alt auto-formats in VS Code on Windows
-    cleanup: {
-      first: 'f',
-      second: ['shift', 'alt']
-    }
+    // optional command to cleanup after paste
+    // shift + alt + f = auto-formatting in VS Code on Windows
+    // cleanup: {
+    //   first: 'f',
+    //   second: ['shift', 'alt']
+    // }
   }
 }

@@ -26,8 +26,7 @@ You can modify environment variables in `src/config.js`
  - **listenOnStartup**: start listening as soon as the app starts
  - **languages**: define selectable languages
  - **defaultLanguage**: default language
- - **robotjs.paste**: the command for pasting copied code (will be different on different operating systems)
- - **robotjs.cleanup**: optional cleanup command (shift+alt+f is auto-format for VS Code on Windows)
+ - **robotjs.cleanup**: optional cleanup command after pasting; you need to uncomment this in the config file to use; the default there is shift+alt+f = auto-format for VS Code on Windows
 
 ## Adding commands
 
@@ -40,13 +39,15 @@ To add new commands:
 	 - **description**: short description of command to display on command list
 	 - **isFuzzyMatch**: see [documentation](https://www.npmjs.com/package/react-speech-recognition)
 
-Get creative! You can add mappings for different languages, for macro commands on your computer, for automated scripts, integrations with IoT, chat bots, and things I can't even imagine right now
+Get creative! You can add mappings for different coding languages, voice interactions on your UI, npm or git commands, macro commands on your computer, scripts to automate tedious tasks, IoT integration, chat bots, and things I can't even imagine right now.
 
 ## Adding languages
 
 To add a new language:
  - Add the language in `src/config.js`
  - Add commands for the language in `src/scripts/commands.js`
+
+Note: best results are in English; your mileage will vary with other languages. I tried Spanish, Japanese, and Chinese in this app. Spanish was pretty smooth, but the Web Speech API had issues recognizing when Chinese and Japanese commands end, so the `finalTranscript` property takes a long time to populate in some cases for those languages.
 
 ## Libraries used
 

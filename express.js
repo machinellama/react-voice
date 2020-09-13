@@ -15,10 +15,15 @@ const clipboardy = require('clipboardy');
 const robotJS = require('robotjs');
 
 router.post('/copyPasta', (request, response) => {
-  clipboardy.writeSync(request.body.text);
-  robotJS.keyTap(config.robotjs.paste.first, config.robotjs.paste.second);
+  const isSomeWeirdOS = process.platform === "darwin";
 
-  // autoformat in vs-code, on windows
+  // copy text to clipboard
+  clipboardy.writeSync(request.body.text);
+
+  // paste code wherever your cursor is
+  robotJS.keyTap('v', isSomeWeirdOS ? 'command' : 'control');
+
+  // optional autoformat for your IDE; need to uncomment in config file
   if (config.robotjs.cleanup) {
     robotJS.keyTap(config.robotjs.cleanup.first, config.robotjs.cleanup.second);
   }
