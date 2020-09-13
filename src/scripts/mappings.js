@@ -70,7 +70,7 @@ module.exports.text = function(type) {
   if (type === 'area') return '';
 
   return `
-    <p className="${type && `text-${type}`}">responsibility demands sacrifice</p>
+    <p className="text${type && ` text-${type}`}">responsibility demands sacrifice</p>
   `
 }
 
