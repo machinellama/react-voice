@@ -1,3 +1,5 @@
+# This repo is deprecated and will no longer be updated
+
 # React Voice
 A speech-to-text application using Web Speech API to map spoken commands to React and HTML code segments, which are copied to an editor.
 
